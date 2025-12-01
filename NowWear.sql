@@ -73,7 +73,6 @@ CREATE TABLE product_inventory (
     UNIQUE (product_id, size)
 );
 
-
 -- Bảng Product_Images
 CREATE TABLE product_images (
     product_image_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -132,7 +131,6 @@ CREATE TABLE orders (
     CHECK (order_process IN ('Chờ xử lý', 'Đang giao', 'Hoàn tất', 'Đã hủy'))
 );
 
-
 -- Bảng Order_Items
 CREATE TABLE order_items (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -145,6 +143,7 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_inventory_id) REFERENCES product_inventory(product_inventory_id) ON DELETE CASCADE
 );
 
+-- Bảng revenue
 CREATE TABLE revenue (
     revenue_id INT AUTO_INCREMENT PRIMARY KEY,
     revenue_month INT CHECK (revenue_month BETWEEN 1 AND 12),
@@ -521,7 +520,7 @@ VALUES
 INSERT INTO roles (role_name) VALUES ('ADMIN');
 INSERT INTO roles (role_name) VALUES ('CUSTOMER');
 
-
+-- Bảng revenue
 INSERT INTO revenue (revenue_month, revenue_year, income, outcome)
 SELECT
     revenue_month,
@@ -541,7 +540,7 @@ FROM (
 ON DUPLICATE KEY UPDATE 
     outcome = newval.outcome;
 
-
+-- Bảng expenses
 INSERT INTO expenses (expense_month, expense_year, expense_amount, description)
 SELECT
     MONTH(p.created_at) AS expense_month,
@@ -552,8 +551,6 @@ FROM products p
 JOIN product_inventory pi ON p.product_id = pi.product_id
 GROUP BY p.product_id, p.product_name, MONTH(p.created_at), YEAR(p.created_at);
 
-
-TRUNCATE TABLE expenses;
 
 
 
