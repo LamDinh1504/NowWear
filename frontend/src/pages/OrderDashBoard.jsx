@@ -36,7 +36,6 @@ const OrderDashBoard = () => {
     );
   };
 
-  // ------------------ UPDATE PROCESS ------------------
   const updateOrderProcess = async (orderId, newProcess) => {
     try {
       await axios.put(
@@ -61,7 +60,6 @@ const OrderDashBoard = () => {
     }
   };
 
-  // ------------------ MARK PAID ------------------
   const handleMarkSelectedPaid = async () => {
     if (!selectedOrders.length)
       return toast.error("Chọn ít nhất một đơn hàng!");
@@ -97,7 +95,6 @@ const OrderDashBoard = () => {
     }
   };
 
-  // ------------------ MARK UNPAID ------------------
   const handleMarkSelectedUnpaid = async () => {
     if (!selectedOrders.length)
       return toast.error("Chọn ít nhất một đơn hàng!");

@@ -12,7 +12,7 @@ const BestSeller = () => {
       .then(response => {
         const filtered = response.data
           .filter(item => item.bestSeller === true)
-          .slice(0, 5); // Lấy 5 sản phẩm bán chạy nhất
+          .slice(0, 5);
         setBestSeller(filtered);
       })
       .catch(error => {

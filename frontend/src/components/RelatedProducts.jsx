@@ -9,7 +9,6 @@ const RelatedProducts = ({ categoryName, subCategoryName }) => {
 
   console.log("Category nhận từ props:", categoryName);
 
-  // 🧩 Ánh xạ tên tiếng Việt → tên category trong backend
   const categoryMap = {
     'nam': 'men',
     'nữ': 'women',
@@ -26,7 +25,6 @@ const RelatedProducts = ({ categoryName, subCategoryName }) => {
 
         let url = '';
 
-        // 🪄 Chuẩn hóa tên category để khớp với backend
         const categoryKey = categoryName.toLowerCase().trim();
         const mappedCategory = categoryMap[categoryKey] || categoryKey; // nếu không có map thì giữ nguyên
         console.log("Mapped category:", mappedCategory);
@@ -36,7 +34,7 @@ const RelatedProducts = ({ categoryName, subCategoryName }) => {
         const res = await axios.get(url);
         let products = res.data;
 
-        setRelated(products.slice(0, 5)); // Giới hạn 5 sản phẩm liên quan
+        setRelated(products.slice(0, 5));
       } catch (err) {
         console.error("Lỗi khi tải sản phẩm liên quan:", err);
         setError('Không thể tải sản phẩm liên quan.');
@@ -61,7 +59,7 @@ const RelatedProducts = ({ categoryName, subCategoryName }) => {
             id={item.productId}
             name={item.productName}
             price={item.price}
-            image={item.productImageUrl} // Đảm bảo đúng field trong DTO
+            image={item.productImageUrl}
           />
         ))}
       </div>

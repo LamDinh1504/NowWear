@@ -25,7 +25,9 @@ const Login = () => {
         toast.error("Lỗi đăng nhập: Token không tồn tại");
       }
     } catch (error) {
-      toast.error(error.response?.data || "Lỗi đăng nhập. Vui lòng thử lại!");
+      toast.error(
+        error.response?.data?.message || "Thông tin đăng nhập không chính xác"
+      );
     }
   };
 
@@ -51,26 +53,28 @@ const Login = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen font-sans bg-white">
-      
-      {/* Bên trái - hình nền + chào mừng */}
       <div
         className="hidden md:flex md:w-1/2 relative bg-cover bg-center"
-        style={{ backgroundImage: `url('${assets.contact_img}')` }}
+        style={{ backgroundImage: `url('${assets.login_img}')` }}
       >
-        <div className="absolute inset-0 bg-white bg-opacity-80 flex flex-col justify-center items-center px-12">
-          <h1 className="text-5xl font-bold mb-4 text-black text-center drop-shadow-md">
+        {/* Overlay chỉ để căn giữa, KHÔNG nền */}
+        <div className="absolute inset-0 flex flex-col justify-center items-center px-12 text-black">
+
+          <h1 className="text-5xl font-bold mb-4 text-center drop-shadow-lg">
             Chào mừng trở lại!
           </h1>
-          <p className="text-gray-700 text-lg text-center drop-shadow-sm max-w-sm">
+
+          <p className="text-lg text-center drop-shadow-md max-w-sm">
             Đăng nhập để quản lý đơn hàng, theo dõi sản phẩm yêu thích và khám phá các trang phục mới nhất.
           </p>
+
         </div>
       </div>
 
       {/* Bên phải - form login */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 px-8 md:px-16 py-12">
-        <form 
-          onSubmit={handleLogin} 
+        <form
+          onSubmit={handleLogin}
           className="bg-white w-full max-w-md p-10 rounded-3xl shadow-lg border border-gray-200"
         >
           <h3 className="text-4xl font-bold mb-10 text-center text-black">Đăng nhập</h3>
@@ -109,8 +113,8 @@ const Login = () => {
             </a>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full bg-black hover:bg-gray-800 text-white font-semibold text-lg py-3 rounded-xl shadow-md transition"
           >
             Đăng nhập

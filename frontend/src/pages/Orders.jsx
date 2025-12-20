@@ -93,9 +93,6 @@ const Orders = () => {
     }
   };
 
-  // =========================
-  // 🔥 HỦY ĐƠN — CONFIRM QUA TOAST
-  // =========================
   const cancelOrder = async (orderId) => {
     toast(
       (t) => (
@@ -153,9 +150,6 @@ const Orders = () => {
     }
   };
 
-  // =========================
-  // LOADING UI
-  // =========================
   if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
@@ -168,9 +162,6 @@ const Orders = () => {
       </div>
     );
 
-  // =========================
-  // ERROR UI
-  // =========================
   if (error)
     return (
       <div className="min-h-screen flex items-center justify-center p-6 bg-white">
@@ -192,9 +183,6 @@ const Orders = () => {
       </div>
     );
 
-  // =========================
-  // UI CHÍNH
-  // =========================
   return (
     <>
       <Toaster position="top-center" />

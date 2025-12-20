@@ -10,19 +10,28 @@ const locations = [
   { 
     province: "TP. Hồ Chí Minh", 
     districts: [
+      "TP. Thủ Đức", 
       "Quận 1", 
       "Quận 3", 
       "Quận 4", 
       "Quận 5",
+      "Quận 6",      
       "Quận 7",
+      "Quận 8",
+      "Quận 9",  
       "Quận 10",
+      "Quận 11",     
       "Quận 12",
+      "Bình Tân",    
       "Gò Vấp",
-      "Bình Thạnh",
+      "Phú Nhuận",
       "Tân Bình",
       "Tân Phú",
-      "Phú Nhuận",
-      "Thủ Đức"
+      "Bình Chánh",
+      "Cần Giờ",
+      "Củ Chi",
+      "Hóc Môn",
+      "Nhà Bè"
     ] 
   },
 
@@ -34,9 +43,10 @@ const locations = [
       "Thuận An",
       "Tân Uyên",
       "Bến Cát",
-      "Phú Giáo",
+      "Bàu Bàng",
+      "Bắc Tân Uyên",
       "Dầu Tiếng",
-      "Bàu Bàng"
+      "Phú Giáo"
     ] 
   },
 
@@ -45,15 +55,15 @@ const locations = [
     districts: [
       "Biên Hòa",
       "Long Khánh",
+      "Cẩm Mỹ",
+      "Định Quán",
       "Long Thành",
       "Nhơn Trạch",
+      "Tân Phú",
+      "Thống Nhất",
       "Trảng Bom",
       "Vĩnh Cửu",
-      "Thống Nhất",
-      "Xuân Lộc",
-      "Cẩm Mỹ",
-      "Tân Phú",
-      "Định Quán"
+      "Xuân Lộc"
     ] 
   }
 ];

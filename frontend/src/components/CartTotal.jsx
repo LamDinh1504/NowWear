@@ -15,7 +15,6 @@ const CartTotal = ({ cartData = [] }) => {
   const actualDeliveryFee = isFreeShipping ? 0 : delivery_fee;
   const total = subtotal === 0 ? 0 : subtotal + actualDeliveryFee;
 
-  // Calculate progress for free shipping
   const progress = Math.min((subtotal / free_shipping_threshold) * 100, 100);
   const remainingForFreeShip = Math.max(free_shipping_threshold - subtotal, 0);
 

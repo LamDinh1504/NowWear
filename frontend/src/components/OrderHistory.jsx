@@ -14,7 +14,6 @@ const OrderHistory = () => {
   const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
   const token = localStorage.getItem("token");
 
-  // Fetch orders from backend
   useEffect(() => {
     const fetchOrders = async () => {
       if (!token) {
@@ -46,7 +45,6 @@ const OrderHistory = () => {
     fetchOrders();
   }, [backendURL, token]);
 
-  // Filter and search logic
   useEffect(() => {
     let result = orders;
 
@@ -84,7 +82,6 @@ const OrderHistory = () => {
     });
   };
 
-  // Calculate stats
   const totalSpent = orders.reduce((sum, order) => sum + order.totalAmount, 0);
   const paidOrders = orders.filter(o => o.paid).length;
   const pendingOrders = orders.filter(o => !o.paid).length;

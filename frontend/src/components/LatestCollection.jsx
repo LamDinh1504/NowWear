@@ -1,50 +1,3 @@
-// import React, { useContext, useEffect, useState } from 'react';
-// import Title from './Title.jsx'
-// import ProductItem from './ProductItem.jsx'
-// import axios from 'axios';
-
-// const LatestCollection = () => {
-
-//     const [latestProducts, setLatestProducts] = useState([]);
-//     const [products, setProducts] = useState([]);
-//     const [error, setError] = useState(null);
-
-//     useEffect(() => {
-//         axios.get("http://localhost:8080/api/products")
-//             .then(response => {
-//                 setProducts(response.data);
-//             })
-//             .catch(error => {
-//                 setError(error.message);
-//             });
-//     }, []);
-
-//     useEffect(() => {
-//         if (products.length > 0) {
-//             setLatestProducts(products.slice(0, 10));
-//         }
-//     }, [products]);;
-//     return (
-//         <div className="my=10">
-//             <div className="text-center py-8 text-3xl">
-//                 <Title text1={'LATEST'} text2={'COLLECTIONS'} />
-//                 <p className="w-11/12 sm:w-3/4 md:w-2/3 m-auto mt-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed tracking-wide">
-//                     Khám phá những thiết kế và xu hướng thời trang mới nhất, được yêu thích bởi hàng nghìn khách hàng.
-//                 </p>
-//             </div>
-//             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-//                 {
-//                     latestProducts.map((item) => (
-//                         <ProductItem key={item.productId} id={item.productId} image={item.productImageUrl} name={item.productName} price={item.price} />
-//                     ))
-//                 }
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default LatestCollection
-
 import React, { useEffect, useState } from 'react';
 import Title from './Title.jsx';
 import ProductItem from './ProductItem.jsx';
@@ -67,7 +20,7 @@ const LatestCollection = () => {
 
   useEffect(() => {
     if (products.length > 0) {
-      setLatestProducts(products.slice(0, 10)); // Lấy 10 sản phẩm mới nhất
+      setLatestProducts(products.slice(0, 10));
     }
   }, [products]);
 

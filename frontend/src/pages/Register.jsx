@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { assets } from '../assets/assets.js';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -59,25 +60,31 @@ const Register = () => {
   return (
     <div className="flex min-h-screen font-sans bg-white text-black">
       {/* Cột trái - giới thiệu */}
-      <div className="hidden md:flex flex-col justify-center w-1/2 px-16 bg-gray-50">
-        <h1 className="text-5xl font-extrabold mb-6 leading-tight text-black drop-shadow-sm">
-          Tham gia cùng chúng tôi
-        </h1>
+      <div
+        className="hidden md:flex md:w-1/2 relative bg-cover bg-center"
+        style={{ backgroundImage: `url(${assets.login_img})` }}
+      >
+        {/* Chữ đè trực tiếp lên ảnh */}
+        <div className="absolute inset-0 flex flex-col justify-center px-16 text-white">
+          <h1 className="text-5xl font-extrabold mb-6 leading-tight drop-shadow-lg">
+            Tham gia cùng chúng tôi
+          </h1>
 
-        <p className="text-lg text-gray-700 leading-relaxed max-w-lg mb-6">
-          Tạo tài khoản để khám phá thế giới trang phục, theo dõi đơn hàng và nhận ưu đãi độc quyền từ{" "}
-          <span className="font-semibold">Forever</span>.
-        </p>
+          <p className="text-lg leading-relaxed max-w-lg mb-6 drop-shadow-md">
+            Tạo tài khoản để khám phá thế giới trang phục, theo dõi đơn hàng và nhận ưu đãi độc quyền từ{" "}
+            <span className="font-semibold">NowWear</span>.
+          </p>
 
-        <p className="text-base text-gray-600">
-          Đã có tài khoản?{" "}
-          <a
-            href="/login"
-            className="text-black font-semibold hover:underline"
-          >
-            Đăng nhập ngay
-          </a>
-        </p>
+          <p className="text-base">
+            Đã có tài khoản?{" "}
+            <a
+              href="/login"
+              className="font-semibold underline hover:text-gray-200"
+            >
+              Đăng nhập ngay
+            </a>
+          </p>
+        </div>
       </div>
 
       {/* Cột phải - form đăng ký */}

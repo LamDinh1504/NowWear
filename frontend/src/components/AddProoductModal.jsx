@@ -21,7 +21,7 @@ const AddProductModal = ({ onClose, onSuccess }) => {
   const [subCategoryId, setSubCategoryId] = useState("");
   const [price, setPrice] = useState("");
   const [inventory, setInventory] = useState([]);
-  const [images, setImages] = useState([]); // {url, displayOrder}
+  const [images, setImages] = useState([]); 
   const [loading, setLoading] = useState(false);
 
   const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
@@ -30,7 +30,7 @@ const AddProductModal = ({ onClose, onSuccess }) => {
   const handleImageFileChange = async (e) => {
     const token = localStorage.getItem("token");
     const files = Array.from(e.target.files);
-    const uploadedImages = [...images]; // giữ ảnh cũ nếu có
+    const uploadedImages = [...images];
 
     try {
       for (let i = 0; i < files.length; i++) {
@@ -45,7 +45,7 @@ const AddProductModal = ({ onClose, onSuccess }) => {
         });
 
         uploadedImages.push({
-          url: res.data, // URL trả về từ backend
+          url: res.data, 
           displayOrder: uploadedImages.length + 1
         });
       }
@@ -58,7 +58,6 @@ const AddProductModal = ({ onClose, onSuccess }) => {
     }
   };
 
-  // Xử lý displayOrder
   const handleImageOrderChange = (index, value) => {
     const newImages = [...images];
     newImages[index].displayOrder = parseInt(value) || 1;
@@ -67,7 +66,6 @@ const AddProductModal = ({ onClose, onSuccess }) => {
 
   const removeImage = (index) => setImages(images.filter((_, i) => i !== index));
 
-  // Inventory
   const addInventory = () => setInventory([...inventory, { size: "", stockQuantity: "" }]);
   const removeInventory = (index) => setInventory(inventory.filter((_, i) => i !== index));
   const handleInventoryChange = (index, field, value) => {
@@ -76,7 +74,6 @@ const AddProductModal = ({ onClose, onSuccess }) => {
     setInventory(newInv);
   };
 
-  // Submit product
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!images.length) {
