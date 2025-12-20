@@ -54,6 +54,18 @@
 #### Trang thông tin liên hệ
 ![Thông tin liên hệ](image/contact.png)
 
+#### Trang admin
+![Admin](image/admin.png)
+
+#### Trang quản lý sản phẩm
+![Quản lý sản phẩm](image/productmanager.png)
+
+#### Trang quản lý đơn hàng
+![Quản lý đơn hàng](image/ordermanager.png)
+
+#### Trang quản lý doanh thu
+![Quản lý doanh thu](image/revenuemanager.png)
+
 ## 🛠️ Công nghệ sử dụng
 
 ### Frontend
@@ -131,22 +143,6 @@ Frontend chạy tại: `http://localhost:3000`
 * `POST /api/auth/login` – Đăng nhập
 * `POST /api/orders` – Đặt hàng
 
----
-
-## 📸 Giao diện (Demo)
-
-* Trang chủ
-* Trang danh sách sản phẩm
-* Trang chi tiết sản phẩm
-* Trang giỏ hàng
-* Trang quản trị (Admin)
-
-*
-
-*
-
----
-
 ## 📄 Ghi chú
 
 * Dự án phục vụ mục đích học tập
@@ -155,3 +151,4 @@ Frontend chạy tại: `http://localhost:3000`
 ## ❤️ Lời cảm ơn
 
 Xin chân thành cảm ơn giảng viên đã hướng dẫn và tạo điều kiện để nhóm hoàn thành đồ án này.
+
