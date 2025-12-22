@@ -7,22 +7,22 @@ import { QRCodeCanvas } from "qrcode.react";
 import { MapPin, CreditCard, Wallet, Sparkles, Scan } from "lucide-react";
 
 const locations = [
-  { 
-    province: "TP. Hồ Chí Minh", 
+  {
+    province: "TP. Hồ Chí Minh",
     districts: [
-      "TP. Thủ Đức", 
-      "Quận 1", 
-      "Quận 3", 
-      "Quận 4", 
+      "TP. Thủ Đức",
+      "Quận 1",
+      "Quận 3",
+      "Quận 4",
       "Quận 5",
-      "Quận 6",      
+      "Quận 6",
       "Quận 7",
       "Quận 8",
-      "Quận 9",  
+      "Quận 9",
       "Quận 10",
-      "Quận 11",     
+      "Quận 11",
       "Quận 12",
-      "Bình Tân",    
+      "Bình Tân",
       "Gò Vấp",
       "Phú Nhuận",
       "Tân Bình",
@@ -32,11 +32,11 @@ const locations = [
       "Củ Chi",
       "Hóc Môn",
       "Nhà Bè"
-    ] 
+    ]
   },
 
-  { 
-    province: "Bình Dương", 
+  {
+    province: "Bình Dương",
     districts: [
       "Thủ Dầu Một",
       "Dĩ An",
@@ -47,11 +47,11 @@ const locations = [
       "Bắc Tân Uyên",
       "Dầu Tiếng",
       "Phú Giáo"
-    ] 
+    ]
   },
 
-  { 
-    province: "Đồng Nai", 
+  {
+    province: "Đồng Nai",
     districts: [
       "Biên Hòa",
       "Long Khánh",
@@ -64,7 +64,7 @@ const locations = [
       "Trảng Bom",
       "Vĩnh Cửu",
       "Xuân Lộc"
-    ] 
+    ]
   }
 ];
 
@@ -105,6 +105,18 @@ const PlaceOrder = () => {
     setDistrict("");
   }, [province]);
 
+  // Tổng tiền hàng
+  const cartTotal = cartData.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  // Phí ship theo điều kiện
+  const shippingFee = cartTotal >= 500000 ? 0 : 30000;
+
+  // Tổng thanh toán cuối cùng
+  const finalAmount = cartTotal + shippingFee;
+
   const handleCreateVNPayQR = async () => {
     if (!token) return toast.error("Bạn cần đăng nhập để thanh toán VNPay!");
     if (!street.trim() || !province || !district) return toast.error("Vui lòng điền đầy đủ thông tin địa chỉ!");
@@ -112,18 +124,14 @@ const PlaceOrder = () => {
 
     try {
       setLoadingQR(true);
-      const amount = cartData.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
       const res = await axios.post(
         `${backendURL}/api/payment/vnpay`,
-        { amount }, // gửi số tiền theo backend
+        { amount: finalAmount }, // ✅ gửi tổng tiền + ship
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
       if (res.data?.data) {
-        // Lưu orderId hoặc info nếu cần
-        localStorage.setItem("lastOrderId", cartData[0]?.orderId || Date.now()); // ví dụ
-        // Redirect sang VNPay hoặc hiển thị QR
         window.location.href = res.data.data;
       } else {
         toast.error("Không tạo được QR VNPay!");

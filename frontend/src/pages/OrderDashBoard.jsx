@@ -8,6 +8,7 @@ const OrderDashBoard = () => {
   const [loading, setLoading] = useState(false);
   const [selectedOrders, setSelectedOrders] = useState([]);
   const [detailOrderId, setDetailOrderId] = useState(null);
+  const [detailOrder, setDetailOrder] = useState(null);
 
   const fetchOrders = async () => {
     setLoading(true);
@@ -241,8 +242,8 @@ const OrderDashBoard = () => {
                       }
                       disabled={order.orderProcess === "Đã hủy"}
                       className={`border px-2 py-1 rounded bg-gray-100 cursor-pointer ${order.orderProcess === "Đã hủy"
-                          ? "opacity-60 cursor-not-allowed"
-                          : "hover:bg-gray-200"
+                        ? "opacity-60 cursor-not-allowed"
+                        : "hover:bg-gray-200"
                         }`}
                     >
                       <option value="Chờ xử lý">Chờ xử lý</option>
@@ -258,7 +259,7 @@ const OrderDashBoard = () => {
 
                   <td className="border p-4 text-center">
                     <button
-                      onClick={() => setDetailOrderId(order.orderId)}
+                      onClick={() => { setDetailOrderId(order.orderId); setDetailOrder(order); }}
                       className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition text-base"
                     >
                       Xem
@@ -280,7 +281,11 @@ const OrderDashBoard = () => {
       {detailOrderId && (
         <OrderDetailModal
           orderId={detailOrderId}
-          onClose={() => setDetailOrderId(null)}
+          order={detailOrder}   // ✅ DÙNG ĐỂ HIỆN ĐỊA CHỈ
+          onClose={() => {
+            setDetailOrderId(null);
+            setDetailOrder(null);
+          }}
         />
       )}
     </div>
@@ -288,4 +293,6 @@ const OrderDashBoard = () => {
 };
 
 export default OrderDashBoard;
+
+
 

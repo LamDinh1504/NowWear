@@ -62,7 +62,7 @@ const Register = () => {
       {/* Cột trái - giới thiệu */}
       <div
         className="hidden md:flex md:w-1/2 relative bg-cover bg-center"
-        style={{ backgroundImage: `url(${assets.login_img})` }}
+        style={{ backgroundImage: `url(${assets.login1})` }}
       >
         {/* Chữ đè trực tiếp lên ảnh */}
         <div className="absolute inset-0 flex flex-col justify-center px-16 text-white">

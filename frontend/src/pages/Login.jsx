@@ -55,7 +55,7 @@ const Login = () => {
     <div className="flex flex-col md:flex-row min-h-screen font-sans bg-white">
       <div
         className="hidden md:flex md:w-1/2 relative bg-cover bg-center"
-        style={{ backgroundImage: `url('${assets.login_img}')` }}
+        style={{ backgroundImage: `url('${assets.login}')` }}
       >
         {/* Overlay chỉ để căn giữa, KHÔNG nền */}
         <div className="absolute inset-0 flex flex-col justify-center items-center px-12 text-black">

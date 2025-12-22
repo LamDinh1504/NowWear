@@ -17,10 +17,14 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import logo from './logo.jpg'
 import login_img from './login_img.jpg'
+import login from './login.png'
+import login1 from './login1.jpg'
 
 export const assets = {
     login_img,
+    login,
     logo,
+    login1,
     hero_img,
     cart_icon,
     dropdown_icon,
