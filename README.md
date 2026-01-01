@@ -29,11 +29,11 @@
 * Tìm kiếm và lọc sản phẩm theo danh mục
 * Thêm sản phẩm vào giỏ hàng
 * Đặt hàng và xem lịch sử đơn hàng
+* Thanh toán (tiền mặt hoặc VNPAY)
 
 ### 🔐 Quản trị viên (Admin)
 
 * Quản lý sản phẩm (thêm / sửa / xóa)
-* Quản lý danh mục sản phẩm
 * Quản lý người dùng
 * Quản lý đơn hàng
 * Quản lý doanh thu
@@ -53,6 +53,12 @@
 
 #### Trang thông tin liên hệ
 ![Thông tin liên hệ](image/contact.png)
+
+#### Trang giỏ hàng
+![Trang giỏ hàng](image/cart.png)
+
+#### Trang thanh toán
+![Trang thanh toán](image/thanhtoan.png)
 
 #### Trang admin
 ![Admin](image/admin.png)
@@ -81,7 +87,7 @@
 * Java Spring Boot
 * Spring Web (REST API)
 * Spring Data JPA
-* Spring Security (JWT Authentication – nếu có)
+* Spring Security (JWT Authentication)
 * Hibernate
 
 ### Database
@@ -114,9 +120,6 @@ spring.datasource.url=jdbc:mysql://localhost:3306/nowwear_db
 spring.datasource.username=
 spring.datasource.password=
 
-# Chạy project
-mvn spring-boot:run
-```
 
 Backend chạy tại: `http://localhost:8080`
 
